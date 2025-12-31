@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kwintasimaker.netlify.app/sitemap.xml
+Sitemap: https://kwitansimaker.guidify.app/sitemap.xml

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Kwitansi Maker Pro — Bukti Pembayaran Resmi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplikasi pembuat kwitansi digital dengan fitur auto-terbilang, pola security anti-palsu, dan stempel LUNAS otomatis.">
+
+  <meta name="google-site-verification" content="njIkUDWT97ucMoKWITvNsIlrf_hy8i9DmwQhoPbelQw" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: '#166534',   /* Warna Hijau Utama (Uang/Trust) */
+            darkgreen: '#052e16', /* Warna Header Gelap */
+            paper: '#f0fff4',     /* Warna Kertas Kwitansi */
+            stamp: '#dc2626',     /* Warna Merah Stempel */
+            gold: '#d4af37'       /* Aksen Premium */
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            mono: ['Courier Prime', 'monospace']
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+<div id="sticky-timer" class="fixed top-0 left-0 w-full bg-stamp text-white text-center py-2 z-50 shadow-md hidden">
+  <p class="text-sm md:text-base font-bold">
+    🔒 PROMO FLASH SALE BERAKHIR DALAM: 
+    <span id="timer-display" class="bg-white text-stamp px-2 py-0.5 rounded ml-2 font-mono text-lg">02:00:00</span>
+  </p>
+</div>
+
+<div class="h-10"></div>
+
+<section class="bg-darkgreen text-white py-20 px-6 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')]"></div>
+
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <div class="inline-block bg-emerald/30 border border-emerald text-green-300 px-6 py-1 rounded-full text-xs font-bold mb-8 tracking-[0.2em] uppercase shadow-lg">
+      ✦ Solusi Administrasi Keuangan
+    </div>
+    
+    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 font-serif">
+      Buat Kwitansi Resmi & Valid <br>
+      <span class="text-green-400">Tanpa Salah Tulis</span>
+    </h1>
+
+    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+      Lupakan kwitansi kertas yang mudah hilang. Buat bukti pembayaran digital dengan <strong>Auto-Terbilang</strong>, Pola Security, dan Stempel LUNAS dalam hitungan detik.
+    </p>
+
+    <div class="mb-10 p-6 bg-white/5 rounded-xl inline-block backdrop-blur-sm border border-emerald/50 shadow-2xl">
+      <p class="text-xs text-gray-400 mb-2 uppercase tracking-widest font-bold">Harga Promo Spesial</p>
+      <div class="flex items-center justify-center gap-5">
+        <span class="line-through text-gray-500 text-xl decoration-red-500 font-serif">Rp 99.000</span>
+        <span class="text-green-400 text-5xl font-serif font-bold">Rp 39.000</span>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-5 justify-center">
+      <a href="#checkout" class="bg-emerald text-white px-8 py-4 rounded font-bold text-xl hover:bg-green-600 transition transform hover:-translate-y-1 flex items-center justify-center gap-3 shadow-lg shadow-emerald/40 uppercase tracking-wide border border-green-400">
+        <span>💸</span> Ambil Promo Sekarang
+      </a>
+      <a href="#demo" class="border border-gray-600 text-gray-300 px-8 py-4 rounded font-bold text-xl hover:bg-white/10 transition uppercase tracking-wide">
+        Lihat Contoh
+      </a>
+    </div>
+
+    <p class="text-xs text-gray-400 mt-8 flex justify-center gap-6 font-mono">
+      <span>[ AUTO-TERBILANG ]</span>
+      <span>[ SECURITY PATTERN ]</span>
+      <span>[ DIGITAL STAMP ]</span>
+    </p>
+  </div>
+</section>
+
+<section class="bg-white border-b border-gray-200 py-12 shadow-sm relative z-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center divide-x divide-gray-100">
+      
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-emerald mb-1 font-serif">100k+</span>
+        <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Transaksi Tercatat</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-stamp mb-1 font-serif">100%</span>
+        <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Valid Reimbursement</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-emerald mb-1 font-serif">5.000+</span>
+        <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Bendahara & Admin</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <span class="text-4xl font-extrabold text-gold mb-1 font-serif">4.9/5</span>
+        <span class="text-xs text-gray-500 font-bold uppercase tracking-wide">Rating User</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="py-20 px-6 bg-paper">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-4 text-emerald font-serif">Bukti Pembayaran yang Bonafit</h2>
+    <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+      Kwitansi digital dengan tampilan resmi. Dilengkapi pola pengaman (guilloche pattern) agar terlihat seperti dokumen bank.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8 items-start">
+      <div class="group relative rounded shadow-xl border border-emerald/20 bg-white overflow-hidden">
+        <div class="absolute top-0 left-0 bg-emerald text-white text-xs px-3 py-1 font-bold z-10 uppercase tracking-wider">Editor Panel</div>
+        <img src="preview-kwitansi.jpg" alt="Editor Kwitansi" class="w-full h-auto transform group-hover:scale-102 transition duration-700">
+      </div>
+      
+      <div class="group relative rounded shadow-xl border border-emerald/20 bg-white overflow-hidden">
+        <div class="absolute top-0 left-0 bg-emerald text-white text-xs px-3 py-1 font-bold z-10 uppercase tracking-wider">Hasil PDF (Security)</div>
+        <img src="preview-kwitansi1.jpg" alt="Preview Kwitansi PDF" class="w-full h-auto transform group-hover:scale-102 transition duration-700">
+      </div>
+
+      <div class="group relative rounded shadow-xl border border-emerald/20 bg-white overflow-hidden">
+        <div class="absolute top-0 left-0 bg-emerald text-white text-xs px-3 py-1 font-bold z-10 uppercase tracking-wider">Mobile Friendly</div>
+        <img src="preview-kwitansi2.jpg" alt="Aplikasi di HP" class="w-full h-auto transform group-hover:scale-102 transition duration-700">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-16 text-emerald font-serif">
+      Tinggalkan Cara Lama <span class="text-stamp">Manual</span>
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-8">
+        
+        <div class="flex gap-5">
+          <div class="bg-emerald p-3 rounded h-fit text-white shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-1 text-emerald font-serif">Auto-Terbilang</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Ketik angka, otomatis muncul kalimat "Lima Ratus Ribu Rupiah". Tidak perlu mikir ejaan, anti salah tulis.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="bg-emerald p-3 rounded h-fit text-white shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-1 text-emerald font-serif">Pola Security Anti-Palsu</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Background kwitansi dilengkapi pola garis halus (guilloche) berwarna hijau. Membuktikan dokumen ini asli dan bukan hasil fotokopi.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="bg-emerald p-3 rounded h-fit text-white shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-1 text-emerald font-serif">Cap LUNAS Otomatis</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Tidak perlu beli stempel fisik. Cukup centang satu kotak, stempel merah "LUNAS" langsung muncul di atas tanda tangan.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded shadow-2xl border border-gray-100">
+        <h4 class="font-bold mb-6 text-center text-emerald font-serif border-b pb-4">KWITANSI BIASA vs KWITANSI MAKER PRO</h4>
+        <div class="space-y-5 text-sm">
+          <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+            <span class="text-gray-500">Tulis Tangan</span>
+            <span class="text-red-500 font-bold">❌ Pegal & Rawan Salah</span>
+          </div>
+           <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+            <span class="text-gray-500">Salah Tulis Angka</span>
+            <span class="text-red-500 font-bold">❌ Ganti Kertas Baru</span>
+          </div>
+           <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+            <span class="text-gray-500">Arsip / Copy</span>
+            <span class="text-red-500 font-bold">❌ Tidak Ada Backup</span>
+          </div>
+          <div class="bg-emerald p-5 rounded text-center mt-6">
+            <p class="font-serif font-bold text-white mb-1 uppercase tracking-widest">Kwitansi Maker Pro</p>
+            <p class="text-green-100 text-lg">✅ AMAN, CEPAT, VALID</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-paper">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-12 text-emerald font-serif">Cara Buat Kwitansi Resmi</h2>
+    
+    <div class="grid md:grid-cols-4 gap-8 text-left">
+      <div class="relative pl-8 border-l border-emerald">
+        <div class="absolute -left-3 top-0 bg-emerald text-white w-6 h-6 rounded-full text-center font-bold text-sm leading-6 border border-emerald">1</div>
+        <h4 class="font-bold text-lg mb-2 text-emerald font-serif">Buka Aplikasi</h4>
+        <p class="text-sm text-gray-600">Buka file HTML di HP atau Laptop.</p>
+      </div>
+      <div class="relative pl-8 border-l border-emerald">
+        <div class="absolute -left-3 top-0 bg-emerald text-white w-6 h-6 rounded-full text-center font-bold text-sm leading-6 border border-emerald">2</div>
+        <h4 class="font-bold text-lg mb-2 text-emerald font-serif">Isi Nominal</h4>
+        <p class="text-sm text-gray-600">Ketik jumlah uang, terbilang muncul otomatis.</p>
+      </div>
+      <div class="relative pl-8 border-l border-emerald">
+        <div class="absolute -left-3 top-0 bg-emerald text-white w-6 h-6 rounded-full text-center font-bold text-sm leading-6 border border-emerald">3</div>
+        <h4 class="font-bold text-lg mb-2 text-emerald font-serif">Stempel & TTD</h4>
+        <p class="text-sm text-gray-600">Upload tanda tangan dan aktifkan cap LUNAS.</p>
+      </div>
+      <div class="relative pl-8 border-l border-emerald">
+        <div class="absolute -left-3 top-0 bg-emerald text-white w-6 h-6 rounded-full text-center font-bold text-sm leading-6 border border-emerald">4</div>
+        <h4 class="font-bold text-lg mb-2 text-emerald font-serif">Cetak PDF</h4>
+        <p class="text-sm text-gray-600">Simpan PDF (A4). Pastikan 'Background Graphics' aktif.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="checkout" class="py-24 px-6 bg-darkgreen text-white text-center relative overflow-hidden">
+   <div class="absolute top-0 right-0 w-80 h-80 bg-emerald rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse-slow"></div>
+   <div class="absolute bottom-0 left-0 w-80 h-80 bg-green-500 rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-pulse-slow"></div>
+
+  <div class="max-w-4xl mx-auto relative z-10">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 font-serif">Hentikan Kebocoran Keuangan</h2>
+    <p class="text-green-200 mb-10 text-lg">
+      Miliki sistem kwitansi digital yang rapi dan aman selamanya.<br>
+      Investasi seharga satu kali makan siang.
+    </p>
+
+    <div class="bg-white/10 backdrop-blur-md p-10 rounded-xl shadow-2xl max-w-lg mx-auto border border-emerald/50 mb-10 relative">
+      <div class="absolute -top-5 right-4 bg-stamp text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg uppercase tracking-wide transform rotate-2">
+        Diskon 60%
+      </div>
+
+      <div class="flex justify-between items-end mb-4 border-b border-gray-500 pb-4">
+        <span class="text-gray-300 font-serif">Harga Normal</span>
+        <span class="line-through text-gray-400 font-serif">Rp 99.000</span>
+      </div>
+      <div class="flex justify-between items-end mb-8">
+        <span class="text-green-400 font-bold text-xl animate-pulse uppercase tracking-widest">HARGA PROMO</span>
+        <span class="text-6xl font-bold text-white font-serif">Rp 39rb</span>
+      </div>
+      
+      <a href="http://lynk.id/tukastore/kx5om8qox1ll/checkout" class="block w-full bg-emerald text-white font-bold text-xl py-5 rounded hover:bg-green-600 hover:shadow-xl transition transform hover:scale-105 uppercase tracking-wide border border-green-400">
+        DOWNLOAD SEKARANG ➔
+      </a>
+      <p class="text-xs text-gray-400 mt-4">Sekali bayar. Akses selamanya.</p>
+    </div>
+
+    <div class="text-sm text-gray-400 space-x-6 flex justify-center items-center font-serif">
+      <span class="flex items-center gap-2"><span class="text-yellow-400">★</span> 4.9/5 Rating</span>
+      <span>•</span>
+      <span>Garansi File Works 100%</span>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-darkgreen text-gray-500 py-10 text-center text-sm border-t border-emerald-900">
+  <p class="font-serif text-gray-400">© 2025 Kwitansi Maker Pro. All Rights Reserved.</p>
+  <p class="mt-3 text-xs">Produk digital - Non Refundable.</p>
+</footer>
+
+<script>
+  // === LOGIKA TIMER (KEY UNIK: KWITANSI) ===
+  document.addEventListener('DOMContentLoaded', function() {
+    const timerElement = document.getElementById('timer-display');
+    const stickyBar = document.getElementById('sticky-timer');
+    // Key storage dibedakan
+    const STORAGE_KEY = 'kwitansi_promo_endtime'; 
+    const DURATION_HOURS = 2;
+
+    stickyBar.classList.remove('hidden');
+
+    let endTime = localStorage.getItem(STORAGE_KEY);
+
+    if (!endTime) {
+      const now = new Date();
+      now.setHours(now.getHours() + DURATION_HOURS);
+      endTime = now.getTime();
+      localStorage.setItem(STORAGE_KEY, endTime);
+    }
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = endTime - now;
+
+      if (distance < 0) {
+        timerElement.innerHTML = "00:00:00";
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timerElement.innerHTML = 
+        (hours < 10 ? "0" + hours : hours) + ":" + 
+        (minutes < 10 ? "0" + minutes : minutes) + ":" + 
+        (seconds < 10 ? "0" + seconds : seconds);
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer(); 
+  });
+</script>
+
+</body>
+</html>
